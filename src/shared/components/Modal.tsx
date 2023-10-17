@@ -1,4 +1,3 @@
-import { Dialog, Transition } from '@headlessui/react'
 import { AiOutlineClose } from 'react-icons/ai';
 
 
@@ -21,7 +20,6 @@ export const Modal: React.FC<ModalProps> = ({ children, onClose, show, title }) 
           <div className="modal-body p-5">
             {children}
           </div>
-
         </div>
       </div>
     </div>

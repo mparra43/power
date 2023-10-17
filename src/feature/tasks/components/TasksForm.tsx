@@ -7,19 +7,14 @@ import { Task } from '../types';
 interface TasksFormProps {
   handleTasks: (data: Task) => void
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>
-  showModal: boolean
+  showModal: boolean,
+  title: string
+  defaultValues: Task
 }
 
 
-export const TasksForm: React.FC<TasksFormProps> = ({ handleTasks, showModal, setShowModal }) => {
+export const TasksForm: React.FC<TasksFormProps> = ({ defaultValues, handleTasks, showModal, setShowModal, title }) => {
 
-  const defaultValues = {
-    task: '',
-    state: '',
-    date: '',
-    employee: ''
-
-  };
   const { control, handleSubmit, reset } = useForm({ defaultValues });
 
   const onSubmit = (data: Task) => {
@@ -28,7 +23,7 @@ export const TasksForm: React.FC<TasksFormProps> = ({ handleTasks, showModal, se
   };
 
   return (
-    <Modal show={showModal} onClose={() => setShowModal(false)} title='Agregar Tarea '>
+    <Modal show={showModal} onClose={() => setShowModal(false)} title={title}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           className='form-control '

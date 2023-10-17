@@ -5,3 +5,4 @@ export * from './Button';
 export * from './Spinner';
 export * from './Pagination';
 export * from './Modal';
+export * from './ToolButtons';

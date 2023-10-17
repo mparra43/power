@@ -2,10 +2,13 @@ import { Pagination } from './Pagination';
 import { TableCard } from './Table/TableCard';
 import { TableFooter } from './Table/TableFooter';
 import usePagination from '../hooks/usePagination';
+import { ActionData, Buttons } from '../types/index';
+import { ToolButtons } from '.';
 
 
 interface TableProps {
-  actions?: React.ReactNode
+  actions?: Buttons[]
+  handleActions?: (data: ActionData) => void;
   header?: React.ReactNode
   classNameTable: string;
   columns: string[];
@@ -14,7 +17,7 @@ interface TableProps {
   itemsForPage: number;
 }
 
-export const Table:React.FC<TableProps> = ({ actions, classNameTable, columns, header,headers, itemsForPage, rows }) => {
+export const Table: React.FC<TableProps> = ({ actions, classNameTable, columns, header, headers, handleActions, itemsForPage, rows }) => {
   const {
     currentData,
     currentPage,
@@ -40,7 +43,11 @@ export const Table:React.FC<TableProps> = ({ actions, classNameTable, columns, h
           {currentData.map((row, rowIndex) => (
             <tr key={rowIndex} >
               {columns.map((column, columnIndex) => (
-                <td key={columnIndex} >{column === 'actions' ? actions : row[column]}</td>
+                <td key={columnIndex}>
+                  {column === 'actions' && actions && handleActions ?
+                    <ToolButtons buttons={actions} element={row} onClick={handleActions}></ToolButtons> : row[column]
+                  }
+                </td>
               ))}
             </tr>
           ))}

@@ -46,7 +46,7 @@ export const TasksHeader: React.FC<TasksHeaderProps> = ({defaultValues, handleTa
             label='Estado'
             rules={{ required: 'El tipo de documento es obligatorio' }}
           />
-          <Button className='btn btn-outline-primary mt-3 py-1 px-3' type='submit' label='Filtar' />
+          <Button className='btn btn-outline-info mt-3 py-1 px-3' type='submit' label='Filtar' />
         </form>
 
       </div>
