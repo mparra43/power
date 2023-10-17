@@ -28,8 +28,7 @@ export const TasksForm: React.FC<TasksFormProps> = ({ handleTasks, showModal, se
   };
 
   return (
-
-    <Modal show={showModal} onClose={() => setShowModal(false)}>
+    <Modal show={showModal} onClose={() => setShowModal(false)} title='Agregar Tarea '>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           className='form-control '

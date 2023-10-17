@@ -44,7 +44,7 @@ export const Tasks = () => {
               />
             </div>
           </div>
-          {showModal && <TasksForm handleTasks={addTask} showModal={showModal}  setShowModal={setShowModal}/>}
+          { <TasksForm handleTasks={addTask} showModal={showModal}  setShowModal={setShowModal}/>}
         </div>
       </Layout>
     </div>
