@@ -19,4 +19,5 @@ export interface ActionProps {
 export interface HandleModalForm {
     title:string
     defaultValues:Task
+    onSave: (data:Task) => void
 }

@@ -20,5 +20,5 @@ export interface Buttons {
 
 export interface ActionData {
     action: string, 
-    element: any
+    element?: any
 }

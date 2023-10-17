@@ -23,7 +23,7 @@ export const Tasks = () => {
   const { tasks, addTask, editTask, deleteTask } = useTasks();
   const { setFilters, filteredData, setFilteredData } = useFilterData(getTacks(), { state: '', task: '' });
   const [showModal, setShowModal] = useState(false);
-  const [modalTask, setModalTask] = useState<HandleModalForm>({ title: 'Agregar tarea', defaultValues })
+  const [modalTask, setModalTask] = useState<HandleModalForm>({ title: 'Agregar tarea', defaultValues, onSave: addTask })
 
   const handleFilters = (filters: TaskFilters) => {
     setFilters(filters);
@@ -37,12 +37,16 @@ export const Tasks = () => {
 
   const handleActions = (data: ActionData) => {
     switch (data.action) {
+      case 'add':
+        setModalTask({ title: 'Agregar tarea', defaultValues, onSave: addTask })
+        setShowModal(true)
+        break;
       case 'edit':
-        setModalTask({ title: 'Editar tarea', defaultValues: data.element })
+        setModalTask({ title: 'Editar tarea', defaultValues: data.element, onSave: editTask })
         setShowModal(true)
         break;
       case 'delete':
-
+        deleteTask(data.element);
         break;
       default:
         break;
@@ -61,14 +65,14 @@ export const Tasks = () => {
                 handleActions={handleActions}
                 columns={['task', 'state', 'date', 'employee', 'actions']}
                 classNameTable=' table border p-4 mb-4 rounded-5 '
-                header={<TasksHeader handleTasks={handleFilters} defaultValues={{ state: '', task: '' }} setShowModal={setShowModal} />}
+                header={<TasksHeader handleTasks={handleFilters} defaultValues={{ state: '', task: '' }} setShowModal={handleActions} />}
                 headers={['Tarea', 'Estado', 'Fecha', 'Empleado', 'Acciones']}
                 itemsForPage={5}
                 rows={filteredData}
               />
             </div>
           </div>
-          {showModal && <TasksForm handleTasks={addTask} showModal={showModal} setShowModal={setShowModal} title={modalTask.title} defaultValues={modalTask.defaultValues} />}
+          {showModal && <TasksForm handleTasks={modalTask.onSave} showModal={showModal} setShowModal={setShowModal} title={modalTask.title} defaultValues={modalTask.defaultValues} />}
         </div>
       </Layout>
     </div>

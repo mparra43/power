@@ -2,18 +2,18 @@ import { Button, Input, Select } from '@/shared/components';
 import { useForm } from 'react-hook-form';
 import { taskStates } from '../constants';
 import { TaskFilters } from '../types';
+import { ActionData } from '@/shared/types';
 
 
 
 interface TasksHeaderProps {
   handleTasks:(data: TaskFilters) => void
-  setShowModal: React.Dispatch<React.SetStateAction<boolean>>
+  setShowModal: (data:ActionData) => void
   defaultValues:TaskFilters
 }
 
 export const TasksHeader: React.FC<TasksHeaderProps> = ({defaultValues, handleTasks, setShowModal}) => {
 
-  
   const { control, handleSubmit, reset } = useForm({ defaultValues });
 
   const onSubmit = (data: TaskFilters) => {
@@ -51,7 +51,7 @@ export const TasksHeader: React.FC<TasksHeaderProps> = ({defaultValues, handleTa
 
       </div>
       <div className='col-md-2 py-1'>
-        <Button className='btn btn-outline-info mt-4  py-2 px-2 ' label='Agregar una tarea' onClick={() => setShowModal(true)} />
+        <Button className='btn btn-outline-info mt-4  py-2 px-2 ' label='Agregar una tarea' onClick={() => setShowModal({action:'add'})} />
       </div>
     </div>
   )
