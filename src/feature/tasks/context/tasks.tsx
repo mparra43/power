@@ -37,6 +37,7 @@ export const useTaskProvaider = (): TasksContextValue => {
   }
 
   const deleteTask = (id: string) => {
+    
     setTasks(tasks.filter((task) => task.id !== id));
   
   };

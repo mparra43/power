@@ -46,7 +46,7 @@ export const Tasks = () => {
         setShowModal(true)
         break;
       case 'delete':
-        deleteTask(data.element);
+        deleteTask(data.element.id);
         break;
       default:
         break;
