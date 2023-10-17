@@ -1,0 +1,39 @@
+{
+  "listaDetasks": [
+    {
+      "id": "1",
+      "task": "Reunión de equipo",
+      "state": "pendiente",
+      "date": "2023-10-20",
+      "employee": "Juan Pérez"
+    },
+    {
+      "id": "2",
+      "task": "Preparar informe mensual",
+      "state": "pendiente",
+      "date": "2023-10-25",
+      "employee": "María Rodríguez"
+    },
+    {
+      "id": "3",
+      "task": "Enviar propuesta de proyecto",
+      "state": "completado",
+      "date": "2023-10-15",
+      "employee": "Luis González"
+    },
+    {
+      "id": "4",
+      "task": "Revisar correos electrónicos",
+      "state": "completado",
+      "date": "2023-10-18",
+      "employee": "Ana Silva"
+    },
+    {
+      "id":"5",
+      "task": "Entregar presentación",
+      "state": "pendiente",
+      "date": "2023-10-28",
+      "employee": "Carlos Martínez"
+    }
+  ]
+}
