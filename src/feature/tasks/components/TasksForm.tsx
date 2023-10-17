@@ -1,5 +1,6 @@
-import { Button, Input, Modal, Select } from '@/shared/components';
+import { toast } from 'react-toastify'
 import { useForm } from 'react-hook-form';
+import { Button, Input, Modal, Select } from '@/shared/components';
 import { taskStates } from '../constants';
 import { Task } from '../types';
 
@@ -19,7 +20,9 @@ export const TasksForm: React.FC<TasksFormProps> = ({ defaultValues, handleTasks
 
   const onSubmit = (data: Task) => {
     handleTasks(data);
+    toast.success('se ha realizado el cambio exitosamente');
     reset();
+    setShowModal(false)
   };
 
   return (
