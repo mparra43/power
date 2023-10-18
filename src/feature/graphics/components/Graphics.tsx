@@ -1,12 +1,9 @@
 import { defaults } from 'chart.js/auto';
 import { useEffect, useState } from 'react'
 import serviceData from '../services/data.json';
-
-
-
 import { DoughnutGraphics, BarGraphics, LineGraphics, ChartFilters } from '.';
 import { ChartFilterValues, DataGraphics } from '../types';
-import { getReportByRegion } from '../services';
+import { filterDataByDate, getReportByRegion } from '../services';
 
 
 
@@ -20,8 +17,12 @@ export const Graphics: React.FC = () => {
 
     const [data, setData] = useState<DataGraphics | null>(null)
 
-    const handleGraphic = (values: ChartFilterValues): void => {
-        console.log(values);
+    const handleGraphic = ({initialDate, finalDate}: ChartFilterValues): void => {
+        if(initialDate && finalDate){
+            const filteredData = filterDataByDate(serviceData.salesByRegion, initialDate, finalDate)
+            setData(filteredData)
+
+        }
     }
 
     useEffect(() => {

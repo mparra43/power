@@ -30,6 +30,7 @@ export const ChartFilters: React.FC<ChartFiltersProps> = ({ onSuccess }) => {
         name='initialDate'
         type='date'
         control={control}
+        rules={{ required: 'La fecha inicial es obligatoria' }}
       />
       <Input
         className='form-control'
@@ -38,8 +39,9 @@ export const ChartFilters: React.FC<ChartFiltersProps> = ({ onSuccess }) => {
         name='finalDate'
         type='date'
         control={control}
+        rules={{ required: 'La fecha final es obligatoria' }}
       />
-      <Button className='btn btn-outline-primary mt-sm-3' type='submit' label='Filtar' />
+      <Button className='btn btn-outline-info mt-sm-3' type='submit' label='Filtar' />
     </form>
 
   )

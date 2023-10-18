@@ -30,6 +30,12 @@ export interface DataSet extends DataLine {
    
 }
 
+export interface Sales  {
+    monthsOfSales: string[]
+    salesByRegion:DataLine[]
+    salesTotalByRegion:number[]
+}
+
 export interface DataGraphics  {
     averageTicketByRegion:number[]
     collaboratorsByRegion:number[]
