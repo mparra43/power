@@ -21,15 +21,13 @@ export const TasksHeader: React.FC<TasksHeaderProps> = ({defaultValues, handleTa
     reset();
   };
 
-
-
   return (
     <div className='row my-4'>
       <div className='col-md-10'>
-        <form className='d-sm-flex justify-content-start align-items-center ' onSubmit={handleSubmit(onSubmit)}>
+        <form className='d-sm-flex justify-content-start align-items-center w-100 ' onSubmit={handleSubmit(onSubmit)}>
           <Input
             className='form-control'
-            classNameContainer='form-group w-50 mr-4'
+            classNameContainer='form-group w-md-50 mr-4'
             control={control}
             name='task'
             type='text'
@@ -39,14 +37,14 @@ export const TasksHeader: React.FC<TasksHeaderProps> = ({defaultValues, handleTa
 
           <Select
             className='form-control '
-            classNameContainer='form-group w-25 mr-4'
+            classNameContainer='form-group w-md-25 mr-4'
             control={control}
             options={taskStates}
             name='state'
             label='Estado'
             rules={{ required: 'El tipo de documento es obligatorio' }}
           />
-          <Button className='btn btn-outline-info mt-3 py-1 px-3' type='submit' label='Filtar' />
+          <Button className='btn btn-outline-info mt-3 py-1 px-3 ' type='submit' label='Filtar' />
         </form>
 
       </div>
