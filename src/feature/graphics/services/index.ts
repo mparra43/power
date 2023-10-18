@@ -63,9 +63,9 @@ export const filterDataByDate = (data: Data[], startDate: Date | string, endDate
         users:filterByDateRange(users,startDate, endDate),
         sales:sales.map(({ month, sales }) => { return { month, sales:filterByDateRange(sales,startDate, endDate),}})
      }
-     console.log( resul)
+   
     });
-    console.log(data)
+  
     return getReportByRegion(data);
   
 }
